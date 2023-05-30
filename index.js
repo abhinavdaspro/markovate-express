@@ -13,12 +13,11 @@ const PORT = 8000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+// app.use(cors({
+//     origin: '*',
+//     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
 
 Router.get("/", (req, res) => {
     return res.json({ success: true, message: "Successfully deployed." })
