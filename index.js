@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
     cors({
-        origin: ['https://markovate-react-app.vercel.app/api/*', "http://localhost:3000"],
+        origin: '*'
     })
 );
 
