@@ -30,7 +30,7 @@ Router.get("/", (req, res) => {
 })
 
 app.use("/", Router);
-app.use("/api/user", UserRoutes);
+app.use("/api/user", cors(), UserRoutes);
 app.use("/api/skill", SkillRoutes);
 
 app.listen(PORT, () => {
