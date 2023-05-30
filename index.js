@@ -8,6 +8,7 @@ var timeout = require('connect-timeout')
 
 const app = express();
 app.use(timeout('30s'));
+
 const PORT = 8000;
 
 app.use(express.json());
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 //     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
 //     allowedHeaders: ['Content-Type', 'Authorization'],
 // }));
-
+app.options('*', cors())
 app.use(cors({
     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
 }));
