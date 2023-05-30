@@ -14,17 +14,9 @@ const PORT = 8000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const allowedOrigins = ['https://markovate-react-app.vercel.app', "http://localhost:3000"];
 app.use(cors({
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
+    origin: '*'
 }));
-
 
 // app.use(cors({
 //     origin: '*',
