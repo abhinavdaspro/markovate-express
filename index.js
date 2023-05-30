@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
     cors({
-        origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"],
+        origin: ['https://markovate-react-app.vercel.app/api/*', "http://localhost:3000"],
     })
 );
 
@@ -30,11 +30,11 @@ app.use(
 //     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
 // }));
 
-// Router.get("/", (req, res) => {
-//     return res.json({ success: true, message: "Successfully deployed." })
-// })
+Router.get("/", (req, res) => {
+    return res.json({ success: true, message: "Successfully deployed." })
+})
 
-// app.use("/", Router);
+app.use("/", Router);
 app.use("/api/user", UserRoutes);
 app.use("/api/skill", SkillRoutes);
 
