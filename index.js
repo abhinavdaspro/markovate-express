@@ -7,7 +7,7 @@ const SkillRoutes = require("./routes/SkillRoute");
 var timeout = require('connect-timeout')
 
 const app = express();
-app.use(timeout('30s'));
+// app.use(timeout('30s'));
 
 const PORT = 8000;
 
@@ -19,10 +19,10 @@ app.use(express.urlencoded({ extended: false }));
 //     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
 //     allowedHeaders: ['Content-Type', 'Authorization'],
 // }));
-app.options('*', cors())
-app.use(cors({
-    origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
-}));
+// app.options('*', cors())
+// app.use(cors({
+//     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
+// }));
 
 Router.get("/", (req, res) => {
     return res.json({ success: true, message: "Successfully deployed." })
