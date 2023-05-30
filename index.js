@@ -4,14 +4,15 @@ const Router = express.Router();
 const DbConnection = require("./DBConnection/connection");
 const UserRoutes = require("./routes/userRoutes")
 const SkillRoutes = require("./routes/SkillRoute");
+var timeout = require('connect-timeout')
 
 const app = express();
+// app.use(express.timeout(300000));
+app.use(timeout('30s'));
 const PORT = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-
 
 
 app.use(cors({
