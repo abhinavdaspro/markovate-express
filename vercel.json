@@ -23,7 +23,7 @@
             ]
         },
         {
-            "source": "/https://markovate-react-app.vercel.app/(.*)",
+            "source": "/markovate-react-app.vercel.app/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Origin",
