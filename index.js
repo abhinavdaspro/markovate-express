@@ -9,6 +9,7 @@ const PORT = 8000;
 const app = express();
 app.use(cors({
     origin: '*',
+    optionsSuccessStatus: 200,
     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
