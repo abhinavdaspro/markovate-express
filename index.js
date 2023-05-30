@@ -13,7 +13,7 @@ app.use(cors({
     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-// app.use(timeout('30s'));
+app.use(timeout('30s'));
 
 
 app.use(express.json());
