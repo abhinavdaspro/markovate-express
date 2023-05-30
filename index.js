@@ -25,6 +25,13 @@ app.options('*', cors())
 //     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
 // }));
 
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 Router.get("/", (req, res) => {
     return res.json({ success: true, message: "Successfully deployed." })
 })
