@@ -13,15 +13,12 @@ const PORT = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors({
-    origin: '*'
-}));
 
-// app.use(cors({
-//     origin: '*',
-//     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-// }));
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 // app.options('*', cors())
 // app.use(cors({
 //     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
