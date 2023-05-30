@@ -5,31 +5,29 @@ const DbConnection = require("./DBConnection/connection");
 const UserRoutes = require("./routes/userRoutes")
 const SkillRoutes = require("./routes/SkillRoute");
 var timeout = require('connect-timeout')
-
+const PORT = 8000;
 const app = express();
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 // app.use(timeout('30s'));
 
-const PORT = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-// app.use(cors({
-//     origin: '*',
-//     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-// }));
 // app.options('*', cors())
 // app.use(cors({
 //     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
 // }));
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 
 Router.get("/", (req, res) => {
