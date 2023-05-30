@@ -7,7 +7,7 @@ const SkillRoutes = require("./routes/SkillRoute");
 var timeout = require('connect-timeout')
 
 const app = express();
-// app.use(timeout('30s'));
+app.use(timeout('30s'));
 
 const PORT = 8000;
 
