@@ -7,17 +7,17 @@ const SkillRoutes = require("./routes/SkillRoute");
 var timeout = require('connect-timeout')
 const PORT = 8000;
 const app = express();
-app.use(cors({
-    origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"],
-    optionsSuccessStatus: 200,
-    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
-app.use(timeout('30s'));
+// app.use(cors({
+//     origin: "*",
+//     optionsSuccessStatus: 200,
+//     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
+// app.use(timeout('30s'));
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 
 // app.options('*', cors())
 // app.use(cors({
