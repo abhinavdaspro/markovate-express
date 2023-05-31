@@ -1,45 +1,19 @@
-const express = require('express');
-const cors = require('cors');
-const Router = express.Router();
-const DbConnection = require("./DBConnection/connection");
-const UserRoutes = require("./routes/userRoutes")
-const SkillRoutes = require("./routes/SkillRoute");
-var timeout = require('connect-timeout')
-const PORT = 8000;
-const app = express();
-// app.use(cors({
-//     origin: "*",
-//     optionsSuccessStatus: 200,
-//     methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-// }));
-// app.use(timeout('30s'));
+const express = require('express')
 
-
-app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-
-// app.options('*', cors())
-// app.use(cors({
-//     origin: ['https://markovate-react-app.vercel.app', "http://localhost:3000"]
-// }));
-
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-
-Router.get("/", (req, res) => {
-    return res.json({ success: true, message: "Successfully deployed." })
-})
-
-app.use("/", Router);
-app.use("/api/user", cors(), UserRoutes);
-app.use("/api/skill", SkillRoutes);
+const app = express()
+const PORT = 8000
 
 app.listen(PORT, () => {
-    console.log("Server started at " + PORT);
-    DbConnection();
+    console.log(`API listening on PORT ${PORT} `)
+})
+
+app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+})
+
+app.get('/about', (req, res) => {
+    res.send('This is my about route..... ')
+})
+app.post('/api/user/register', (req, res) => {
+    res.send('Post API..... ')
 })
